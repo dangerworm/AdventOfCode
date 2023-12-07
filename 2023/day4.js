@@ -14,32 +14,28 @@ const cards = fs
   .map(({ card, winningNumbers, playerNumbers }) => {
     const winningSet = [...new Set(winningNumbers)]
     const playerSet = [...new Set(playerNumbers)]
-    const intersection = winningSet.filter(n => playerSet.includes(n))
-    const points = intersection.length === 0 ? 0 : Math.pow(2, intersection.length - 1)
+    const wins = winningSet.filter(n => playerSet.includes(n)).length
+    const points = wins === 0 ? 0 : Math.pow(2, wins - 1)
     return {
       card,
       winningNumbers,
       playerNumbers,
-      wins: intersection.length,
+      wins,
       points
     }
   })
 
-//console.log('Part 1:', cards.reduce((acc, { points }) => acc + points, 0)) 
+console.log('Part 1:', cards.reduce((acc, { points }) => acc + points, 0)) 
 
 const cardCopies = [...cards]
 let index = -1
 while (++index < cardCopies.length) {
-  const card = cardCopies[index]
+  const { card, wins } = cardCopies[index]
   if (!card) {
     continue
   }
-
-  for (let i = card.card; i < card.card + card.wins; i++) {
-    cardCopies.push(cards[i])
-  }
+  
+  cardCopies.push(...cards.slice(card, card + wins))
 }
 
-cardCopies.sort((a, b) => a.card < b.card ? -1 : 1)
-
-console.log(cardCopies.length)
+console.log('Part 2:', cardCopies.length)
