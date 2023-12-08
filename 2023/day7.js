@@ -104,6 +104,5 @@ const getSum = (players) =>
       , 0)
 
 const data = parse('day7.txt')
-
 console.log("Part 1:", getSum(part1(data)))
 console.log("Part 2:", getSum(part2(data)))
