@@ -1,0 +1,5 @@
+hijklmmn X
+abbceffg X
+abbcegjk X
+abcdefgh -> abcdffaa
+ghijklmn -> ghjaabcc

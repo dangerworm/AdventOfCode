@@ -1,0 +1,14 @@
+{
+  "name": "adventofcode2015",
+  "version": "1.0.0",
+  "description": "Advent of Code 2015",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Drew Morgan",
+  "license": "ISC",
+  "dependencies": {
+    "crypto-js": "^4.2.0"
+  }
+}
