@@ -1,5 +1,4 @@
 import fs from "fs"
-import { totalmem } from "os"
 
 const getCombinations = (currentList, nameOptions) => {
     if (nameOptions.length === 1) return [...currentList, nameOptions[0]]
@@ -15,7 +14,7 @@ const getCombinations = (currentList, nameOptions) => {
         : combinations
 }
 
-const input = fs.readFileSync("./test.txt", "utf8")
+const input = fs.readFileSync("./data.txt", "utf8")
     .split("\n")
     .map(line => line.match(/(\w+) would (gain|lose) (\d+) happiness units by sitting next to (\w+)/))
 
